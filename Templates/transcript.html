@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transcript Entry</title>
+    
+    <style>
+     body{
+    margin: 0;
+    padding: 0;
+
+
+
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url("/static/jello.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-position: center;
+    background-attachment: fixed;
+    color:white;
+}
+
+     .navbar{
+    width: 85%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+.navbar ul li a{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+.navbar ul li::after{
+    content: '';
+    height: 3px;
+    width:0;
+    background:skyblue;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+.navbar ul li:hover::after{
+    width: 100%;
+}
+
+        #transcriptContainer {
+            max-width: 80%;
+            margin: 80px auto 20px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #transcriptText {
+            font-size: 20px;
+            line-height: 1.6;
+            color: black;
+        }
+
+        #summarizeButton {
+            font-size: 24px; 
+            padding: 10px 20px; 
+            border-radius: 5px;
+            background-color: blue; 
+            color: white; 
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease; 
+        }
+
+        #summarizeButton:hover {
+            background-color: skyblue;
+        }
+
+        h1 {
+            color: black;
+        }
+    </style>
+   
+</head>
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+         <!--  <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>-->
+            <li><a href="{{ url_for('faq') }}">FAQ</a></li>
+        </ul>
+    </div>
+    <div id="transcriptContainer">
+        <h1>Transcript</h1>
+        <div id="transcriptText">
+            {{ transcript }}
+        </div>
+    
+        <form action="{{ url_for('generate_summary') }}" method="post">
+            <input type="hidden" name="transcript" value="{{ transcript }}">
+            <input type="submit" value="Summarize Transcript" id="summarizeButton">
+        </form>
+    </div>
+</body>
+</html>

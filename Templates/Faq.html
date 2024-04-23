@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+
+
+
+  
+<head>
+    <title>FAQs</title> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+
+  <style>
+    body { 
+        margin: 0;
+    padding: 0;
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url("/static/jello.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-position: center;
+    background-attachment: fixed;
+    color:white;
+} 
+.layout { 
+  width: 600px; 
+  margin: auto; 
+  position: relative;
+  overflow: hidden;
+
+} 
+.accordion { 
+  padding: 10px; 
+  margin-top: 10px; 
+  margin-bottom: 10px; 
+  background: skyblue; 
+  border-radius: 10px; 
+  max-height: 3;
+  overflow: hidden;
+  transition: max-height 0.3ms ease-in-out;
+  cursor: pointer;
+  
+} 
+
+.accordion__question p { 
+  margin: 5px; 
+  padding: 0; 
+  font-family: Artifakt Element Hair bold; 
+  font-size: 20px; 
+  transition: all;
+} 
+.accordion__answer p { 
+  margin: 5px; 
+  padding: 10px; 
+  font-size: medium; 
+  font-family: Artifakt Element Hair; 
+  color: rgb(255, 255, 255); 
+  background: rgba(0,0,0,0.75); 
+  border-radius: 10px; 
+} 
+.accordion:hover { 
+  cursor: pointer; 
+  transform: translateY(-5px);
+} 
+.accordion__answer { 
+  display: none; 
+} 
+.accordion.active .accordion__answer { 
+  display: block; 
+}
+h2{
+    
+    text-align:center;
+}
+h1{
+    text-align: center;
+    
+
+
+}
+.arrow{
+    margin-left: 100px;
+    transition: transform 0.3s ease-in-out;
+}
+.accordion.active .arrow {
+  transform: rotate(180deg); 
+}
+
+  .home-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color:skyblue; 
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid skyblue;
+    border-radius: 4px;
+    
+  }
+
+  .home-link i {
+    margin-right: auto; 
+    
+  }
+.home-link i:hover{
+    transform: translateY(-5px);
+}
+
+  </style> 
+
+</head> 
+  
+<body> 
+    <a href="Index.html" class="home-link">
+        <i class="fas fa-home"></i> 
+      </a>
+      
+  <h2> 
+    YouTube transcript Summarizer
+  </h2> 
+  <h1>Frequently Asked Question</h1>
+  <div class="layout"> 
+    <div class="accordion"> 
+      <div class="accordion__question"> 
+        <p>What is a YouTube transcript summarizer?
+           
+        </p> 
+       
+      </div> 
+      <div class="accordion__answer"> 
+        <p>A YouTube transcript summarizer is a tool that automatically generates concise summaries of video transcripts from YouTube videos. It helps you quickly understand the content of a video without watching the entire video.</p> 
+      </div> 
+    </div> 
+  
+    <div class="accordion"> 
+      <div class="accordion__question"> 
+        <p>How does the summarizer work?</p> 
+      </div> 
+  
+      <div class="accordion__answer"> 
+        <p> 
+            The summarizer uses natural language processing and machine learning techniques to analyze the video's transcript. It identifies key points, important sentences, and topics, and then creates a brief summary of the video's content.
+        </p> 
+      </div> 
+    </div> 
+
+    <div class="accordion"> 
+        <div class="accordion__question"> 
+          <p>Why should I use a transcript summarizer?</p> 
+        </div> 
+    
+        <div class="accordion__answer"> 
+          <p> 
+            Using a summarizer saves time by providing you with a summary of video content, allowing you to decide if the video is relevant to your needs. It's useful for finding specific information within long videos.
+          </p> 
+        </div> 
+      </div>
+
+      <div class="accordion"> 
+        <div class="accordion__question"> 
+          <p>Is the summarizer accurate?</p> 
+        </div> 
+    
+        <div class="accordion__answer"> 
+          <p> 
+            The accuracy of the summarizer depends on the quality of the transcript and the complexity of the video content. While it provides a good overview, it's always best to watch the full video for complete understanding.
+          </p> 
+        </div> 
+      </div>
+
+      <div class="accordion"> 
+        <div class="accordion__question"> 
+          <p>Can I use the summarizer for any YouTube video?</p> 
+        </div> 
+    
+        <div class="accordion__answer"> 
+          <p> 
+            You can use the summarizer for most YouTube videos, but the quality of the summary may vary based on the transcript quality and video complexity.
+          </p> 
+        </div> 
+      </div>
+
+
+      <div class="accordion"> 
+        <div class="accordion__question"> 
+          <p>Is the summarizer available for free?</p> 
+        </div> 
+    
+        <div class="accordion__answer"> 
+          <p> 
+           we offer free version of our summarizer.
+          </p> 
+        </div> 
+      </div>
+
+
+      <div class="accordion"> 
+        <div class="accordion__question"> 
+          <p>How do I get started with the summarizer?</p> 
+        </div> 
+    
+        <div class="accordion__answer"> 
+          <p> 
+            Simply visit our website, paste the YouTube video URL or transcript, and click the "Summarize" button to get started.
+          </p> 
+        </div> 
+      </div>
+      
+  </div> 
+  <script>
+ let answers = document.querySelectorAll(".accordion");
+
+answers.forEach((event) => {
+  event.addEventListener("click", () => {
+    if (event.classList.contains("active")) {
+      event.classList.remove("active");
+    } else {
+      
+      answers.forEach((otherEvent) => {
+        otherEvent.classList.remove("active");
+      });
+      event.classList.add("active");
+    }
+  });
+});
+
+
+  </script>
+</body> 
+  
+</html>

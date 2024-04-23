@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube transcript summerizer</title>
+    <style>
+        body{
+    margin: 0;
+    padding: 0;
+
+
+
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url("/static/jello.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-position: center;
+    background-attachment: fixed;
+    color:white;
+}
+
+.navbar{
+    width: 85%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+.navbar ul li a{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+.navbar ul li::after{
+    content: '';
+    height: 3px;
+    width:0;
+    background:skyblue;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+.navbar ul li:hover::after{
+    width: 100%;
+}
+
+.heading{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: skyblue;
+}
+.heading h1{
+    font-size: 70px;
+    margin-top: 80px;
+}
+
+.heading p{
+    margin: 20px auto;
+    font-weight: 100;
+    line-height: 25px;
+    font-size: 25px;
+
+}
+button{
+    width:200px ;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid skyblue;
+    background: transparent;
+    color: #fff;
+    cursor: pointer; 
+    position: relative;
+    overflow: hidden;   
+    font-size: medium;
+}
+span {
+    background: skyblue;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index:-1;
+    transition: 1s;
+
+}
+button:hover span{
+    width: 100%;
+}
+button:hover{
+    border:none;
+}
+.benefits {
+    background-color:white;
+    margin-top: 440px;
+    padding: 40px;
+    text-align: center;
+    display: flex; 
+    justify-content: space-between; 
+    flex-wrap: wrap;
+    background: transparent 
+}
+
+.benefits h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: skyblue;
+    text-shadow: 0 0 10px black ;
+    background: transparent;
+    width: 100%; 
+}
+
+.benefit-section {
+    flex: 2; 
+    text-align: center;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+    background-color: #fff;
+    box-shadow: 0 0 10px black ;
+    background: transparent;
+}
+
+.benefit-title {
+    font-size: 24px;
+    color: snow;
+    
+    background: transparent;
+}
+
+.benefit-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+}
+
+.benefit-list-item {
+    font-size: 20px;
+    color: snow;
+    margin-bottom: 10px;
+    background: transparent;
+}
+
+.benefit-section:hover {
+    background-color:skyblue;
+    color: #fff;
+    transform: translateY(-5px);
+    
+}
+
+.fa-check-circle {
+    color: #00a859;
+    margin-right: 10px;
+    background: transparent;
+}
+.working{
+    text-align: center;
+}
+.hiw-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+}
+
+.hiw-list-item {
+    font-size: 20px;
+    color: snow;
+    margin-bottom: 10px;
+    background: transparent;
+}
+
+.hiw-section:hover {
+    background-color:skyblue;
+    color: #fff;
+    transform: translateY(-5px);
+    
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="background-image">
+        <div class="navbar">
+            <p class="para"></p>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <!--<li><a href="{{ url_for('dashboard') }}">Dashboard</a>-->
+                <li><a href="{{ url_for('faq') }}">FAQ</a></li>
+
+            </ul>
+        </div>
+        <div class="heading">
+            <h1>Welcome to our Summarizer</h1>
+            <p>Turn Hours of Video Content into Minutes of Insight</p>
+           
+            <button type="button" onclick="goToNextPage()" ><span></span> Summerize Now</button>
+        </div>
+       
+        
+    <div>
+    <section class="benefits">
+        <h2>Benefits of Using Our YouTube Transcript Summarizer</h2>
+        <div class="benefit-section">
+            <h3 class="benefit-title">Save Time</h3>
+            <ul class="benefit-list">
+                <li class="benefit-list-item"><i class="fas fa-check-circle"></i> Quickly condense video content.</li>
+                <li class="benefit-list-item"><i class="fas fa-check-circle"></i> Get key insights in minutes.</li>
+            </ul>
+        </div>
+        <div class="benefit-section">
+            <h3 class="benefit-title">Enhance Understanding</h3>
+            <ul class="benefit-list">
+                <li class="benefit-list-item"><i class="fas fa-check-circle"></i> Easily grasp main ideas.</li>
+                <li class="benefit-list-item"><i class="fas fa-check-circle"></i> Improve content comprehension.</li>
+            </ul>
+        </div>
+        <div class="benefit-section">
+            <h3 class="benefit-title">Customization</h3>
+            <ul class="benefit-list">
+                <li class="benefit-list-item"><i class="fas fa-check-circle"></i> Tailor summaries to your needs.</li>
+                <li class="benefit-list-item"><i class="fas fa-check-circle"></i> Focus on what matters most.</li>
+            </ul>
+        </div>
+    </section>
+        
+    
+    <section class=" working">
+        <h2>How our Summarizer Works</h2>
+        <div class="hiw-section">
+            <ul class="hiw-list">
+                <li class="hiw-list-item"><i class="fas fa-check-circle"></i> On landing page click on Summarize now </li>
+               
+            </ul>
+        </div>
+            <div class="hiw-section">
+                <ul class="hiw-list">
+                    <li class="hiw-list-item"><i class="fas fa-check-circle"></i> enter the youtube Url </li>
+                   
+                </ul>
+            </div>
+                <div class="hiw-section">
+                    <ul class="hiw-list">
+                        <li class="hiw-list-item"><i class="fas fa-check-circle"></i> Get transcript and click on summarize</li>
+                        
+                       
+                    </ul>
+                </div>
+                    <div class="hiw-section">
+                        <ul class="hiw-list">
+                            <li class="hiw-list-item"><i class="fas fa-check-circle"></i> Get a short summary of youtube video </li>
+                           
+                        </ul>
+                        </div>
+
+    </section>
+        
+    
+    </div>
+    
+    <script>
+  function goToNextPage() {
+    window.location.href = "{{ url_for('link')}}";
+  }
+</script>
+
+</body>
+</html>

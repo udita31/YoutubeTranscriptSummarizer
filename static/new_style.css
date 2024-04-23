@@ -1,0 +1,168 @@
+body{
+    margin: 0;
+    padding: 0;
+
+
+
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url("jello.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-position: center;
+    background-attachment: fixed;
+    color:white;
+}
+
+.navbar{
+    width: 85%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+.navbar ul li a{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+.navbar ul li::after{
+    content: '';
+    height: 3px;
+    width:0;
+    background:skyblue;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+.navbar ul li:hover::after{
+    width: 100%;
+}
+
+.heading{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: skyblue;
+}
+.heading h1{
+    font-size: 70px;
+    margin-top: 80px;
+}
+
+.heading p{
+    margin: 20px auto;
+    font-weight: 100;
+    line-height: 25px;
+    font-size: 25px;
+
+}
+button{
+    width:200px ;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid skyblue;
+    background: transparent;
+    color: #fff;
+    cursor: pointer; 
+    position: relative;
+    overflow: hidden;   
+    font-size: medium;
+}
+span {
+    background: skyblue;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index:-1;
+    transition: 1s;
+
+}
+button:hover span{
+    width: 100%;
+}
+button:hover{
+    border:none;
+}
+.benefits {
+    background-color:white;
+    margin-top: 440px;
+    padding: 40px;
+    text-align: center;
+    display: flex; 
+    justify-content: space-between; 
+    flex-wrap: wrap;
+    background: transparent 
+}
+
+.benefits h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: skyblue;
+    text-shadow: 0 0 10px black ;
+    background: transparent;
+
+    
+    width: 100%; 
+}
+
+.benefit-section {
+    flex: 2; 
+    text-align: center;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px black ;
+    background: transparent;
+}
+
+.benefit-title {
+    font-size: 24px;
+    color: snow;
+    margin-bottom: 10px;
+    background: transparent;
+}
+
+.benefit-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+}
+
+.benefit-list-item {
+    font-size: 20px;
+    color: snow;
+    margin-bottom: 10px;
+    background: transparent;
+}
+
+.benefit-section:hover {
+    background-color:skyblue;
+    color: #fff;
+    transform: translateY(-5px);
+    
+}
+
+.fa-check-circle {
+    color: #00a859;
+    margin-right: 10px;
+    background: transparent;
+}
